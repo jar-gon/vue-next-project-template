@@ -1,0 +1,90 @@
+// 布局
+.ant-layout-content {
+  flex: none;
+  min-height: 100%;
+}
+// 表单查询
+.danger-color {
+  color: #ff4d4f;
+}
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  .ant-form {
+    margin-bottom: 12px;
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .ant-btn {
+      margin-right: 8px;
+    }
+    .el-cascader{
+      .el-input__inner{
+        height: 34px !important;
+      }
+      .el-cascader__tags{
+        height: 32px;
+        overflow: auto;
+      }
+    }
+  }
+  .toolbar-action {
+    .ant-btn {
+      margin-right: 8px;
+    }
+  }
+}
+.search-list {
+  &__content {
+    .ant-btn-link {
+      padding: 0;
+      line-height: normal;
+      height: auto;
+      & + .split {
+        color: #CCCCCC;
+        padding: 0 3px;
+      }
+    }
+    .ant-table-wrapper {
+      .ant-table {
+        .ant-table-content {
+          .ant-table-body {
+            .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+              padding: 5px 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 重写 form 的一些样式
+.ant-form {
+  .ant-form-item {
+    margin-bottom: 19px;
+    &.ant-form-item-with-help {
+      margin-bottom: 4px;
+    }
+    .ant-form-explain {
+      font-size: 12px;
+      min-height: 18px;
+    }
+    // border-radius
+    .ant-select-selector,
+    .ant-input,
+    .ant-btn,
+    .ant-input-number {
+      border-radius: 4px;
+    }
+    .common-tips {
+      padding-left: 10px;
+      font-size: 12px;
+      color: #bbb;
+    }
+  }
+}
+// border-radius
+.ant-btn {
+  border-radius: 4px;
+}
