@@ -16,7 +16,7 @@ function pathResolve(dir: string) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: '/dist-pro/',
+  base: '/vue-next/',
   plugins: [
     vue(),
     vueJsx(),
