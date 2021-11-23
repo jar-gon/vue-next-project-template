@@ -10,8 +10,8 @@
         :key="tag.path"
         :class="isActive(tag) ? 'active' : ''"
         :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
-        tag="span"
         class="tags-view-item"
+        custom-tag="span"
         @click.middle="closeSelectedTag(tag)"
         @contextmenu.prevent="openMenu(tag, $event)"
       >

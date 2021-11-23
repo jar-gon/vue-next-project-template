@@ -48,7 +48,7 @@
               id="hamburger-container"
               :collapsed="collapsed"
               class="hover-container"
-              @toggleClick="setCollapsed"
+              @toggle-click="setCollapsed"
             />
             <breadcrumb v-if="showBreadcrumb" id="breadcrumb-container" />
             <div v-if="showScreenfull || showUserInfo" class="navbar__wrap--right">
@@ -68,7 +68,7 @@
     <setting />
     <!-- setting -->
 
-    <backtop v-if="showBackTop" />
+    <BackToTop v-if="showBackTop" />
   </div>
 </template>
 
@@ -87,7 +87,7 @@ import Screenfull from '../components/Screenfull/index.vue'
 import UserInfo from '../components/UserInfo/index.vue'
 import MenuTab from '../components/MenuTab/index.vue'
 import Setting from '../components/Setting/index.vue'
-import Backtop from '../components/Backtop/index.vue'
+import BackToTop from '../components/BackToTop/index.vue'
 
 const layout = computed(() => appStore.getLayout)
 const collapsed = computed(() => appStore.getCollapsed)

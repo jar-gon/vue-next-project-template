@@ -4,7 +4,7 @@ import { useTagsViewStoreWithOut, PAGE_LAYOUT_KEY } from '@/store/modules/tags-v
 
 import { useRouter } from 'vue-router'
 
-function tryTsxEmit<T extends any = ComponentInternalInstance>(
+function tryTsxEmit<T extends ComponentInternalInstance>(
   fn: (_instance: T) => Promise<void> | void
 ) {
   const instance = getCurrentInstance() as any

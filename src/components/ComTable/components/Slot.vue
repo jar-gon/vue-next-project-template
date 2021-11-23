@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, inject, h, PropType } from 'vue'
 export default defineComponent({
-  name: 'Slot',
+  name: 'ComTableSlot',
   props: {
     row: {
       type: Object as PropType<IObj>,

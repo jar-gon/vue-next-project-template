@@ -56,7 +56,7 @@
     <setting />
     <!-- setting -->
 
-    <backtop v-if="showBackTop" />
+    <BackToTop v-if="showBackTop" />
   </div>
 </template>
 
@@ -72,7 +72,7 @@ import Sider from '../components/Sider/index.vue'
 import Screenfull from '../components/Screenfull/index.vue'
 import UserInfo from '../components/UserInfo/index.vue'
 import Setting from '../components/Setting/index.vue'
-import Backtop from '../components/Backtop/index.vue'
+import BackToTop from '../components/BackToTop/index.vue'
 
 const marginRight = ref<number>(0)
 const layout = computed(() => appStore.getLayout)

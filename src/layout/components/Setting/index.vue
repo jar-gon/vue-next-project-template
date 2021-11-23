@@ -188,6 +188,7 @@ function setShowBackTop(val: boolean) {
 }
 
 function setShowMenuTab(val: boolean) {
+  debugger
   appStore.setShowMenuTab(val)
 }
 </script>

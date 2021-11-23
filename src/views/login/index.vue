@@ -14,7 +14,7 @@ interface FormModule {
 }
 
 export default defineComponent({
-  name: 'Login',
+  name: 'ViewLogin',
   setup() {
     const appStore = useAppStore()
     const permissionStore = usePermissionStore()
