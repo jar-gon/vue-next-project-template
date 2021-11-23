@@ -135,39 +135,39 @@ function setLayout(mode: LayoutType) {
   ;(mode as string) === 'Top' && setShowMenuTab(false)
 }
 
-function setCollapsed(val: boolean) {
+function setCollapsed(val: any) {
   appStore.setCollapsed(val)
 }
 
-function setFixedHeader(val: boolean) {
+function setFixedHeader(val: any) {
   appStore.setFixedHeader(val)
 }
 
-function setShowNavbar(val: boolean) {
+function setShowNavbar(val: any) {
   appStore.setShowNavbar(val)
 }
 
-function setHamburger(val: boolean) {
+function setHamburger(val: any) {
   appStore.setHamburger(val)
 }
 
-function setBreadcrumb(val: boolean) {
+function setBreadcrumb(val: any) {
   appStore.setBreadcrumb(val)
 }
 
-function setScreenfull(val: boolean) {
+function setScreenfull(val: any) {
   appStore.setScreenfull(val)
 }
 
-function setUserInfo(val: boolean) {
+function setUserInfo(val: any) {
   appStore.setUserInfo(val)
 }
 
-function setShowTags(val: boolean) {
+function setShowTags(val: any) {
   appStore.setShowTags(val)
 }
 
-function setShowLogo(val: boolean) {
+function setShowLogo(val: any) {
   appStore.setShowLogo(val)
 }
 
@@ -179,16 +179,15 @@ function setLogoTitle(val: string) {
   appStore.setLogoTitle(val)
 }
 
-function setGreyMode(val: boolean) {
+function setGreyMode(val: any) {
   appStore.setGreyMode(val)
 }
 
-function setShowBackTop(val: boolean) {
+function setShowBackTop(val: any) {
   appStore.setShowBackTop(val)
 }
 
-function setShowMenuTab(val: boolean) {
-  debugger
+function setShowMenuTab(val: any) {
   appStore.setShowMenuTab(val)
 }
 </script>

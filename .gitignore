@@ -3,5 +3,8 @@ node_modules
 dist
 dist-ssr
 *.local
+*.log
 
 /components.d.ts
+package-lock.json
+yarn.lock
