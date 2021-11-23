@@ -38,7 +38,7 @@ export default defineConfig({
       // 指定symbolId格式
       symbolId: 'icon-[dir]-[name]',
       // 压缩
-      svgoOptions: true
+      svgoOptions: false
     }),
     commonjsExternals({
       externals: ['path']
@@ -49,7 +49,8 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         additionalData: '@import "./src/styles/variables.less";',
-        javascriptEnabled: true
+        javascriptEnabled: true,
+        charset: false
       }
     }
   },
