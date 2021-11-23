@@ -133,7 +133,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
               {
                 path: 'menu1-1-1',
                 name: 'Menu111Demo',
-                component: () => import('_v/level/Menu111.vue'),
+                component: () => import('_v/level/menu111.vue'),
                 meta: {
                   title: 'Menu1-1-1'
                 }
@@ -143,7 +143,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
           {
             path: 'menu1-2',
             name: 'Menu12Demo',
-            component: () => import('_v/level/Menu12.vue'),
+            component: () => import('_v/level/menu12.vue'),
             meta: {
               title: 'Menu1-2'
             }
@@ -153,7 +153,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       {
         path: 'menu2',
         name: 'Menu2Demo',
-        component: () => import('_v/level/Menu2.vue'),
+        component: () => import('_v/level/menu2.vue'),
         meta: {
           title: 'Menu2'
         }
