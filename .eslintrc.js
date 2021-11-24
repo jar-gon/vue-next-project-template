@@ -21,8 +21,7 @@ module.exports = defineConfig({
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    'plugin:prettier/recommended',
-    'plugin:jest/recommended'
+    'plugin:prettier/recommended'
   ],
   rules: {
     '@typescript-eslint/ban-ts-ignore': 'off',
@@ -75,7 +74,7 @@ module.exports = defineConfig({
       {
         singleline: 10,
         multiline: {
-          max: 1,
+          max: 1
         }
       }
     ],
