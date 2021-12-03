@@ -14,34 +14,34 @@ export const lineOptions: EChartsOption = {
       '九月',
       '十月',
       '十一月',
-      '十二月'
+      '十二月',
     ],
     boundaryGap: false,
     axisTick: {
-      show: false
-    }
+      show: false,
+    },
   },
   grid: {
     left: 20,
     right: 20,
     bottom: 20,
     top: 30,
-    containLabel: true
+    containLabel: true,
   },
   tooltip: {
     trigger: 'axis',
     axisPointer: {
-      type: 'cross'
+      type: 'cross',
     },
-    padding: [5, 10]
+    padding: [5, 10],
   },
   yAxis: {
     axisTick: {
-      show: false
-    }
+      show: false,
+    },
   },
   legend: {
-    data: ['预期', '实际']
+    data: ['预期', '实际'],
   },
   series: [
     {
@@ -50,7 +50,7 @@ export const lineOptions: EChartsOption = {
       type: 'line',
       data: [100, 120, 161, 134, 105, 160, 165, 114, 163, 185, 118, 123],
       animationDuration: 2800,
-      animationEasing: 'cubicInOut'
+      animationEasing: 'cubicInOut',
     },
     {
       name: '实际',
@@ -59,24 +59,24 @@ export const lineOptions: EChartsOption = {
       itemStyle: {},
       data: [120, 82, 91, 154, 162, 140, 145, 250, 134, 56, 99, 123],
       animationDuration: 2800,
-      animationEasing: 'quadraticOut'
-    }
-  ]
+      animationEasing: 'quadraticOut',
+    },
+  ],
 }
 
 export const pieOptions: EChartsOption = {
   title: {
     text: '用户访问来源',
-    left: 'center'
+    left: 'center',
   },
   tooltip: {
     trigger: 'item',
-    formatter: '{a} <br/>{b} : {c} ({d}%)'
+    formatter: '{a} <br/>{b} : {c} ({d}%)',
   },
   legend: {
     orient: 'vertical',
     left: 'left',
-    data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+    data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
   },
   series: [
     {
@@ -89,38 +89,38 @@ export const pieOptions: EChartsOption = {
         { value: 310, name: '邮件营销' },
         { value: 234, name: '联盟广告' },
         { value: 135, name: '视频广告' },
-        { value: 1548, name: '搜索引擎' }
-      ]
-    }
-  ]
+        { value: 1548, name: '搜索引擎' },
+      ],
+    },
+  ],
 }
 
 export const barOptions: EChartsOption = {
   title: {
     text: '每周用户活跃量',
-    left: 'center'
+    left: 'center',
   },
   tooltip: {
     trigger: 'axis',
     axisPointer: {
-      type: 'shadow'
-    }
+      type: 'shadow',
+    },
   },
   xAxis: {
     type: 'category',
     data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     axisTick: {
-      alignWithLabel: true
-    }
+      alignWithLabel: true,
+    },
   },
   yAxis: {
-    type: 'value'
+    type: 'value',
   },
   series: [
     {
       name: '活跃量',
       data: [13253, 34235, 26321, 12340, 24643, 1322, 1324],
-      type: 'bar'
-    }
-  ]
+      type: 'bar',
+    },
+  ],
 }

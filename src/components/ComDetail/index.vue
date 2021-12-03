@@ -5,7 +5,7 @@
         <div>
           {{ title }}
           <el-tooltip v-if="message" :content="message" placement="right">
-            <i class="el-icon-warning-outline"></i>
+            <Warning />
           </el-tooltip>
         </div>
       </div>
@@ -40,27 +40,27 @@
 <script setup lang="ts" name="ComDetail">
 import { PropType, ref, computed } from 'vue'
 import { SchemaConfig } from './types'
-
+import { Warning } from '@/icons'
 const props = defineProps({
   // 详情标题
   title: {
     type: String as PropType<string>,
-    default: ''
+    default: '',
   },
   // 是否可折叠
   collapsed: {
     type: Boolean as PropType<boolean>,
-    default: true
+    default: true,
   },
   // 辅助提示
   message: {
     type: String as PropType<string>,
-    default: ''
+    default: '',
   },
   // 是否需要边框
   border: {
     type: Boolean as PropType<boolean>,
-    default: true
+    default: true,
   },
   // 需要展示的数据
   data: {
@@ -68,50 +68,50 @@ const props = defineProps({
     default: () => {
       return {}
     },
-    required: true
+    required: true,
   },
   // 布局展示的数据
   schema: {
     type: Array as PropType<SchemaConfig[]>,
     default: () => [],
-    required: true
+    required: true,
   },
   // 是否标题和内容各占一行 垂直布局
   vertical: {
     type: Boolean as PropType<boolean>,
-    default: false
+    default: false,
   },
   // 标题宽度
   labelWidth: {
     type: String as PropType<string>,
-    default: '150px'
+    default: '150px',
   },
   // 标题位置
   labelAlign: {
     type: String as PropType<string>,
-    default: 'left'
+    default: 'left',
   },
   // 边框颜色
   borderColor: {
     type: String as PropType<string>,
-    default: '#f0f0f0'
+    default: '#f0f0f0',
   },
   // 标题背景颜色
   labelBg: {
     type: String as PropType<string>,
-    default: '#fafafa'
+    default: '#fafafa',
   },
   classic: {
     type: Boolean as PropType<boolean>,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const show = ref<boolean>(true)
 const contentStyleObj = computed(() => {
   return {
     borderTop: props.border ? `1px solid ${props.borderColor}` : '',
-    borderLeft: props.border ? `1px solid ${props.borderColor}` : ''
+    borderLeft: props.border ? `1px solid ${props.borderColor}` : '',
   }
 })
 const labelStyleObj = computed((): any => {
@@ -120,14 +120,14 @@ const labelStyleObj = computed((): any => {
     textAlign: props.labelAlign,
     backgroundColor: props.border && !props.classic ? props.labelBg : '',
     borderRight: props.border && !props.classic ? `1px solid ${props.borderColor}` : '',
-    borderBottom: props.border && !props.classic ? `1px solid ${props.borderColor}` : ''
+    borderBottom: props.border && !props.classic ? `1px solid ${props.borderColor}` : '',
   }
 })
 const messageStyleObj = computed(() => {
   return {
     width: props.vertical ? `100%` : `calc(100% - ${props.labelWidth})`,
     borderRight: props.border && !props.classic ? `1px solid ${props.borderColor}` : '',
-    borderBottom: props.border && !props.classic ? `1px solid ${props.borderColor}` : ''
+    borderBottom: props.border && !props.classic ? `1px solid ${props.borderColor}` : '',
   }
 })
 

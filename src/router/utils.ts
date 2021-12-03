@@ -6,7 +6,7 @@ export const getParentLayout = (name: string) => {
     new Promise((resolve) => {
       resolve({
         ...ParentLayout,
-        name
+        name,
       })
     })
 }
@@ -20,8 +20,8 @@ export function getRoute(route: RouteLocationNormalized): RouteLocationNormalize
       ? matched.map((item) => ({
           meta: item.meta,
           name: item.name,
-          path: item.path
+          path: item.path,
         }))
-      : undefined) as RouteRecordNormalized[]
+      : undefined) as RouteRecordNormalized[],
   }
 }

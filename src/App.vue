@@ -1,16 +1,19 @@
 <template>
   <el-config-provider :locale="zhCn">
-    <router-view class="app" :class="{ grey__mode: greyMode }" />
+    <Layout>
+      <!-- <router-view class="app" :class="{ grey__mode: greyMode }" /> -->
+    </Layout>
   </el-config-provider>
 </template>
 
 <script setup lang="ts" name="App">
-import { computed } from 'vue'
-import { useAppStore } from '@/store/modules/app'
-const appStore = useAppStore()
+// import { computed } from 'vue'
+// import { useAppStore } from '@/store/modules/app'
+import Layout from '@/layout/index.vue'
+// const appStore = useAppStore()
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
-const greyMode = computed(() => appStore.getGreyMode)
+// const greyMode = computed(() => appStore.getGreyMode)
 </script>
 
 <style lang="less">

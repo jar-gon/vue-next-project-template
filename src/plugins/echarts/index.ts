@@ -9,7 +9,7 @@ import {
   PolarComponent,
   AriaComponent,
   ParallelComponent,
-  LegendComponent
+  LegendComponent,
 } from 'echarts/components'
 
 import { CanvasRenderer } from 'echarts/renderers'
@@ -27,7 +27,7 @@ echarts.use([
   PieChart,
   MapChart,
   CanvasRenderer,
-  PictorialBarChart
+  PictorialBarChart,
 ])
 
 export default echarts

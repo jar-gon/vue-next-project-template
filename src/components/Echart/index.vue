@@ -14,24 +14,24 @@ type ThemeType = 'light' | 'dark' | 'default'
 const props = defineProps({
   options: {
     type: Object as PropType<EChartsOption>,
-    required: true
+    required: true,
   },
   className: {
     type: String as PropType<string>,
-    default: ''
+    default: '',
   },
   height: {
     type: String as PropType<string>,
-    default: '500px'
+    default: '500px',
   },
   width: {
     type: String as PropType<string>,
-    default: ''
+    default: '',
   },
   theme: {
     type: String as PropType<ThemeType>,
-    default: 'default'
-  }
+    default: 'default',
+  },
 })
 
 let chartRef: Nullable<echarts.ECharts> = null
@@ -46,7 +46,7 @@ watch(
     ;(chartRef as echarts.ECharts).setOption(options)
   },
   {
-    deep: true
+    deep: true,
   }
 )
 

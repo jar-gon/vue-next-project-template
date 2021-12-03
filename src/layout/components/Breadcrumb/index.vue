@@ -26,7 +26,7 @@ import { ref, watch } from 'vue'
 import type {
   RouteRecordRaw,
   RouteLocationMatched,
-  RouteLocationNormalizedLoaded
+  RouteLocationNormalizedLoaded,
 } from 'vue-router'
 import { useRouter } from 'vue-router'
 import { compile } from 'path-to-regexp'
@@ -84,7 +84,7 @@ watch(
     getBreadcrumb()
   },
   {
-    immediate: true
+    immediate: true,
   }
 )
 </script>

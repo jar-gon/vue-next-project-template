@@ -15,7 +15,7 @@ export const useTagsViewStore = defineStore({
   id: 'tagsView',
   state: (): TagsViewState => ({
     visitedViews: [],
-    cachedViews: new Map<string, string[]>()
+    cachedViews: new Map<string, string[]>(),
   }),
   getters: {
     getVisitedViews(): any[] {
@@ -23,7 +23,7 @@ export const useTagsViewStore = defineStore({
     },
     getCachedViews(): Map<string, string[]> {
       return this.cachedViews
-    }
+    },
   },
   actions: {
     ADD_VISITED_VIEW(view: RouteLocationNormalizedLoaded): void {
@@ -31,7 +31,7 @@ export const useTagsViewStore = defineStore({
       if (view.meta?.noTagsView) return
       this.visitedViews.push(
         Object.assign({}, view, {
-          title: view.meta.title || 'no-name'
+          title: view.meta.title || 'no-name',
         })
       )
     },
@@ -133,7 +133,7 @@ export const useTagsViewStore = defineStore({
         this.SET_CACHED_VIEW()
         resolve({
           visitedViews: [...this.visitedViews],
-          cachedViews: [...this.cachedViews]
+          cachedViews: [...this.cachedViews],
         })
       })
     },
@@ -155,7 +155,7 @@ export const useTagsViewStore = defineStore({
         this.SET_CACHED_VIEW()
         resolve({
           visitedViews: [...this.visitedViews],
-          cachedViews: [...this.cachedViews]
+          cachedViews: [...this.cachedViews],
         })
       })
     },
@@ -177,7 +177,7 @@ export const useTagsViewStore = defineStore({
         this.SET_CACHED_VIEW()
         resolve({
           visitedViews: [...this.visitedViews],
-          cachedViews: [...this.cachedViews]
+          cachedViews: [...this.cachedViews],
         })
       })
     },
@@ -195,8 +195,8 @@ export const useTagsViewStore = defineStore({
     },
     updateVisitedView(view: RouteLocationNormalizedLoaded): void {
       this.UPDATE_VISITED_VIEW(view)
-    }
-  }
+    },
+  },
 })
 
 export function useTagsViewStoreWithOut() {

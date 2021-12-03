@@ -21,8 +21,8 @@ import { PropType } from 'vue'
 defineProps({
   collapsed: {
     type: Boolean as PropType<boolean>,
-    default: true
-  }
+    default: true,
+  },
 })
 
 const emit = defineEmits(['toggleClick'])

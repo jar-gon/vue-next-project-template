@@ -5,6 +5,6 @@ export function useIntro() {
   const intro: IntroJs.IntroJs = new (IntroJs as any)()
 
   return {
-    intro
+    intro,
   }
 }

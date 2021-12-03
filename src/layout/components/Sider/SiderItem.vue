@@ -8,12 +8,7 @@
       "
     >
       <el-menu-item
-        :index="
-          resolvePath(
-            onlyOneChild.path,
-            showMenuTab ? `${activeTab === '/dashboard' ? '' : activeTab}/${basePath}` : ''
-          )
-        "
+        :index="resolvePath(onlyOneChild)"
         :class="{ 'submenu-title-noDropdown': !isNest }"
       >
         <item v-if="onlyOneChild.meta" :icon="onlyOneChild?.meta?.icon || siderItem?.meta?.icon" />
@@ -26,12 +21,7 @@
     <el-sub-menu
       v-else
       :popper-class="layout !== 'Top' ? 'nest-popper-menu' : 'top-popper-menu'"
-      :index="
-        resolvePath(
-          siderItem.path,
-          showMenuTab ? `${activeTab === '/dashboard' ? '' : activeTab}/${basePath}` : ''
-        )
-      "
+      :index="resolvePath(siderItem)"
     >
       <template #title>
         <item v-if="siderItem.meta" :icon="siderItem?.meta?.icon" :title="siderItem.meta.title" />
@@ -42,49 +32,40 @@
         :is-nest="true"
         :item="child"
         :layout="layout"
-        :base-path="resolvePath(child.path)"
+        :base-path="resolvePath(child)"
       />
     </el-sub-menu>
   </template>
 </template>
 
 <script setup lang="ts" name="SiderItemCom">
+import { AppRouteRecordRaw } from '@/router/types'
+import { isExternal } from '@/utils/validate'
 import { PropType, ref, computed } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
-import { isExternal } from '@/utils/validate'
 import Item from './Item.vue'
-import { usePermissionStore } from '@/store/modules/permission'
-const permissionStore = usePermissionStore()
-import { useAppStore } from '@/store/modules/app'
-const appStore = useAppStore()
 
 const props = defineProps({
   // route object
   item: {
     type: Object as PropType<any>,
-    required: true
+    required: true,
   },
   isNest: {
     type: Boolean as PropType<boolean>,
-    default: false
-  },
-  basePath: {
-    type: String as PropType<string>,
-    default: ''
+    default: false,
   },
   layout: {
     type: String as PropType<string>,
-    default: 'Classic'
-  }
+    default: 'Classic',
+  },
 })
 const onlyOneChild = ref<any>(null)
 
-const activeTab = computed(() => permissionStore.getActiveTab)
-const showMenuTab = computed(() => appStore.getShowMenuTab)
 const siderItem: any = computed(() => props.item)
 
-function hasOneShowingChild(children: RouteRecordRaw[] = [], parent: RouteRecordRaw): boolean {
-  const showingChildren: RouteRecordRaw[] = children.filter((item: RouteRecordRaw) => {
+function hasOneShowingChild(children: AppRouteRecordRaw[] = [], parent: RouteRecordRaw): boolean {
+  const showingChildren: AppRouteRecordRaw[] = children.filter((item: AppRouteRecordRaw) => {
     if (item.meta && item.meta.hidden) {
       return false
     } else {
@@ -101,21 +82,18 @@ function hasOneShowingChild(children: RouteRecordRaw[] = [], parent: RouteRecord
 
   // Show parent if there are no child router to display
   if (showingChildren.length === 0) {
-    onlyOneChild.value = { ...parent, path: '', noShowingChildren: true }
+    onlyOneChild.value = { ...parent, noShowingChildren: true }
     return true
   }
 
   return false
 }
 
-function resolvePath(routePath: string, otherPath?: string): string {
-  if (isExternal(routePath)) {
-    return routePath
+function resolvePath(route: AppRouteRecordRaw): string {
+  if (isExternal(route.path)) {
+    return route.path
   }
-  return (
-    ((otherPath || props.basePath) === '/' ? '' : otherPath || props.basePath) +
-    (routePath ? '/' + routePath : '')
-  )
+  return (route.prefix || '') + route.path
 }
 </script>
 

@@ -26,7 +26,7 @@ function click() {
   if (!sf.isEnabled) {
     Message({
       message: 'you browser can not work',
-      type: 'warning'
+      type: 'warning',
     })
     return false
   }

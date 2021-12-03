@@ -32,7 +32,7 @@ export const usePermissionStore = defineStore({
     addRouters: [],
     isAddRouters: false,
     menuTabRouters: [],
-    activeTab: ''
+    activeTab: '',
   }),
   getters: {
     getRouters(): AppRouteRecordRaw[] {
@@ -49,7 +49,7 @@ export const usePermissionStore = defineStore({
     },
     getMenuTabRouters(): AppRouteRecordRaw[] {
       return this.menuTabRouters
-    }
+    },
   },
   actions: {
     generateRoutes(): Promise<unknown> {
@@ -74,9 +74,9 @@ export const usePermissionStore = defineStore({
             name: '404',
             meta: {
               hidden: true,
-              breadcrumb: false
-            }
-          }
+              breadcrumb: false,
+            },
+          },
         ])
         // 渲染菜单的所有路由
         this.routers = deepClone(constantRouterMap, ['component']).concat(routerMap)
@@ -91,8 +91,8 @@ export const usePermissionStore = defineStore({
     },
     setAcitveTab(activeTab: string): void {
       this.activeTab = activeTab
-    }
-  }
+    },
+  },
 })
 
 // 路由过滤，主要用于权限控制

@@ -9,12 +9,12 @@ import { provide, ref } from 'vue'
 const props = defineProps({
   separator: {
     type: String as PropType<string>,
-    default: '/'
+    default: '/',
   },
   separatorClass: {
     type: String as PropType<string>,
-    default: ''
-  }
+    default: '',
+  },
 })
 
 const breadcrumbRef = ref<HTMLElement | null>(null)

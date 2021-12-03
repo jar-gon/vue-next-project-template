@@ -50,18 +50,18 @@ const slots = useSlots()
 const props = defineProps({
   title: {
     type: String as PropType<string>,
-    default: ''
+    default: '',
   },
   // 是否显示全屏按钮
   showFullscreen: {
     type: Boolean as PropType<boolean>,
-    default: true
+    default: true,
   },
   // 是否可以拖拽
   draggable: {
     type: Boolean as PropType<boolean>,
-    default: true
-  }
+    default: true,
+  },
 })
 const dialogRef = ref<HTMLElement | null>(null)
 

@@ -1,7 +1,6 @@
 <template>
   <router-link class="app-logo" to="/" :class="{ 'app-logo--Top': layout !== 'Classic' }">
-    <img :src="logoImg" />
-    <div v-if="show" class="sidebar-title">{{ title }}</div>
+    <div class="logo" :class="{ collapsed: !show }" :title="title"></div>
   </router-link>
 </template>
 
@@ -9,14 +8,12 @@
 import { ref, watch, PropType, computed } from 'vue'
 import { useAppStore } from '@/store/modules/app'
 const appStore = useAppStore()
-// @ts-ignore
-import logoImg from '@/assets/img/logo.png'
 
 const props = defineProps({
   collapsed: {
     type: Boolean as PropType<boolean>,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const show = ref<boolean>(true)
@@ -48,19 +45,21 @@ watch(
   cursor: pointer;
   background-color: var(--menu-background-color);
   align-items: center;
-
-  img {
-    width: 37px;
-    height: 37px;
-    margin-left: 14px;
-  }
-
-  .sidebar-title {
-    margin-left: 12px;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--menu-active-text-color);
-    transition: 0.5s;
+  justify-content: center;
+  .logo {
+    width: 108px;
+    height: 28px;
+    // margin: auto auto auto 19px;
+    font-size: 0;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(https://web-data.zmlearn.com/image/fFjGLpkFzdsvZYtHiwTyRH/logo%EF%BC%8F108-28%402x.png);
+    &.collapsed {
+      background-image: url(https://web-data.zmlearn.com/image/iRq6CgT8SDSHN1VLDhceus/logo_small_0505.png);
+      width: 27px;
+      height: 28px;
+    }
   }
 }
 
@@ -72,14 +71,6 @@ watch(
 
   &:hover {
     background: #f6f6f6;
-  }
-
-  img {
-    margin-left: 0;
-  }
-
-  .sidebar-title {
-    color: var(--top-menu-text-color);
   }
 }
 </style>

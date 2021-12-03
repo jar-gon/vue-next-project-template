@@ -60,7 +60,7 @@ function moveToTarget(currentTag: any) {
           el: $scrollWrapper,
           position: 'scrollLeft',
           to: afterNextTagOffsetLeft - $containerWidth,
-          duration: 500
+          duration: 500,
         })
         start()
       } else if (beforePrevTagOffsetLeft < $scrollWrapper.scrollLeft) {
@@ -68,7 +68,7 @@ function moveToTarget(currentTag: any) {
           el: $scrollWrapper,
           position: 'scrollLeft',
           to: beforePrevTagOffsetLeft,
-          duration: 500
+          duration: 500,
         })
         start()
       }
@@ -83,7 +83,7 @@ function moveTo(to: number) {
       el: $scrollWrapper,
       position: 'scrollLeft',
       to: $scrollWrapper.scrollLeft + to,
-      duration: 500
+      duration: 500,
     })
     start()
   })
@@ -91,7 +91,7 @@ function moveTo(to: number) {
 
 defineExpose({
   moveToTarget,
-  moveTo
+  moveTo,
 })
 </script>
 

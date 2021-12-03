@@ -26,7 +26,7 @@ export function useScrollTo({
   position = 'scrollLeft',
   to,
   duration = 500,
-  callback
+  callback,
 }: ScrollToParams) {
   const isActiveRef = ref(false)
   const start = el[position]

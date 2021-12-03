@@ -1,7 +1,7 @@
 <template>
   <div ref="wrapper" class="tags-view-container">
     <div class="container-left hover-container" @click="move(-200)">
-      <i class="el-icon-d-arrow-left"></i>
+      <ArrowLeft class="el-icon" />
     </div>
     <scroll-pane ref="scrollPaneRef" class="tags-view-wrapper">
       <router-link
@@ -16,22 +16,17 @@
         @contextmenu.prevent="openMenu(tag, $event)"
       >
         {{ (tag as any).title }}
-        <span
-          v-if="!tag.meta.affix"
-          class="el-icon-close"
-          @click.prevent.stop="closeSelectedTag(tag)"
-        ></span>
+        <!-- v-if="!tag.meta.affix" -->
+        <Close class="el-icon" @click.prevent.stop="closeSelectedTag(tag)" />
       </router-link>
     </scroll-pane>
     <div class="container-right">
-      <div class="hover-container">
-        <i class="el-icon-d-arrow-right" @click="move(200)"></i>
+      <div class="hover-container" @click="move(200)">
+        <ArrowRight class="el-icon" />
       </div>
       <div class="hover-container" @click="refreshSelectedTag(selectedTag)">
         <el-tooltip content="刷新" placement="bottom">
-          <div>
-            <svg-icon icon-class="refresh" />
-          </div>
+          <Refresh class="el-icon" />
         </el-tooltip>
       </div>
       <div class="hover-container" @click="closeSelectedTag(selectedTag)">
@@ -44,11 +39,6 @@
       <div class="hover-container">
         <screenfull />
       </div>
-      <!-- <div class="hover-container" @click="toHome">
-        <el-tooltip content="首页" placement="bottom">
-          <svg-icon icon-class="home" />
-        </el-tooltip>
-      </div> -->
     </div>
 
     <ul v-show="visible" :style="{ left: left + 'px', top: top + 'px' }" class="contextmenu">
@@ -76,6 +66,7 @@ import type { RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router'
 import { useRouter } from 'vue-router'
 import ScrollPane from './ScrollPane.vue'
 import Screenfull from '../Screenfull/index.vue'
+import { ArrowLeft, ArrowRight, Close, Refresh } from '@/icons'
 
 const { currentRoute, push, replace } = useRouter()
 const wrapper = ref<HTMLElement | null>(null)
@@ -107,7 +98,7 @@ function filterAffixTags(routes: RouteRecordRaw[], basePath = '/'): any[] {
         fullPath: tagPath,
         path: tagPath,
         name: route.name,
-        meta: { ...route.meta }
+        meta: { ...route.meta },
       })
     }
     if (route.children) {
@@ -165,7 +156,7 @@ async function refreshSelectedTag(view: RouteLocationNormalizedLoaded) {
   const { fullPath } = view
   nextTick(() => {
     replace({
-      path: '/redirect' + fullPath
+      path: '/redirect' + fullPath,
     })
   })
 }
@@ -261,7 +252,7 @@ watch(
 )
 
 defineExpose({
-  tagRefs
+  tagRefs,
 })
 </script>
 

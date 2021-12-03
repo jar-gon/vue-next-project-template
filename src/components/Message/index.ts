@@ -12,7 +12,7 @@ const resetMessage = (options: any) => {
   resetMessage[type] = (options: any) => {
     if (typeof options === 'string') {
       options = {
-        message: options
+        message: options,
       }
     }
     options.type = type

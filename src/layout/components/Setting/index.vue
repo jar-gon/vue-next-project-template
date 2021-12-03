@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="setting__wrap" @click="toggleClick">
-      <i class="el-icon-setting"></i>
+      <Setting class="el-icon" />
     </div>
     <el-drawer v-model="drawer" direction="rtl" size="20%">
       <template #title>
@@ -106,6 +106,7 @@
 <script setup lang="ts" name="Setting">
 import { computed, ref } from 'vue'
 import { useAppStore, LayoutType } from '@/store/modules/app'
+import { Setting } from '@/icons'
 const appStore = useAppStore()
 
 const drawer = ref<boolean>(false)

@@ -31,7 +31,7 @@
     <div
       class="main__wrap"
       :class="{
-        'main__wrap--collapsed': collapsed
+        'main__wrap--collapsed': collapsed,
       }"
     >
       <el-scrollbar
@@ -39,14 +39,14 @@
         :class="{
           'main__wrap--fixed--all': fixedHeader && showNavbar && showTags,
           'main__wrap--fixed--nav': fixedHeader && showNavbar && !showTags,
-          'main__wrap--fixed--tags': fixedHeader && !showNavbar && showTags
+          'main__wrap--fixed--tags': fixedHeader && !showNavbar && showTags,
         }"
       >
         <div
           class="header__wrap"
           :class="{
             'header__wrap--fixed': fixedHeader,
-            'header__wrap--collapsed': fixedHeader && collapsed
+            'header__wrap--collapsed': fixedHeader && collapsed,
           }"
         >
           <div v-if="showNavbar && layout !== 'Top'" class="navbar__wrap">
@@ -67,7 +67,7 @@
             <tags-view />
           </div>
         </div>
-        <app-main />
+        <slot></slot>
       </el-scrollbar>
     </div>
 
@@ -84,7 +84,6 @@ import { computed } from 'vue'
 import { useAppStore } from '@/store/modules/app'
 const appStore = useAppStore()
 
-import AppMain from '../components/AppMain/index.vue'
 import TagsView from '../components/TagsView/index.vue'
 import Logo from '../components/Logo/index.vue'
 import Sider from '../components/Sider/index.vue'

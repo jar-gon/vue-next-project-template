@@ -12,7 +12,7 @@ const elementConfig: ConfigElement = {
   /**
    * 层级
    */
-  zIndex: 2000
+  zIndex: 2000,
 }
 
 export default elementConfig

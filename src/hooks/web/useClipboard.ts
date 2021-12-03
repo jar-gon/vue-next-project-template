@@ -4,7 +4,7 @@ import { Message } from '_c/Message'
 export function useClipboard() {
   function clipboard(text: string, event: MouseEvent) {
     const clipboard = new Clipboard(event.target as Element, {
-      text: () => text
+      text: () => text,
     })
     clipboard.on('success', () => {
       clipboardSuccess()
@@ -26,6 +26,6 @@ export function useClipboard() {
   }
 
   return {
-    clipboard
+    clipboard,
   }
 }

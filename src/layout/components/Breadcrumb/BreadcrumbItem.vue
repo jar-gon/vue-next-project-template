@@ -15,12 +15,12 @@ import { useRouter } from 'vue-router'
 const props = defineProps({
   to: {
     type: [String, Object] as PropType<string | IObj>,
-    default: ''
+    default: '',
   },
   replace: {
     type: Boolean as PropType<boolean>,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const linkRef = ref<HTMLElement | null>(null)

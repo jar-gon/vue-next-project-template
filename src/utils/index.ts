@@ -102,7 +102,7 @@ export function formatTime(time: any, fmt: string) {
       'm+': date.getMinutes(),
       's+': date.getSeconds(),
       'q+': Math.floor((date.getMonth() + 3) / 3),
-      S: date.getMilliseconds()
+      S: date.getMilliseconds(),
     }
     if (/(y+)/.test(fmt)) {
       fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
@@ -130,7 +130,7 @@ export function exportFile(response: AxiosResponse) {
       : 'test'
   )
   const blob = new Blob([response.data as Blob], {
-    type: response.headers['content-type']
+    type: response.headers['content-type'],
   })
   if (typeof (window.navigator as any).msSaveBlob !== 'undefined') {
     ;(window.navigator as any).msSaveBlob(blob, fileName)

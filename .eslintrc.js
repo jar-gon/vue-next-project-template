@@ -105,7 +105,17 @@ module.exports = defineConfig({
         properties: 'always'
       }
     ],
-    'comma-dangle': [2, 'never'],
+    'comma-dangle': [2, {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+    }],
+    "prettier/prettier": [2, {
+      // if not configured, prettier will conflict with elsint comma-dangle
+      trailingComma: 'es5',
+    }],
     'comma-spacing': [
       2,
       {

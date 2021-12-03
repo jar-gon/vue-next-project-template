@@ -5,7 +5,7 @@
 export default {
   name: 'BackToTop',
   inheritAttrs: false,
-  customOptions: {}
+  customOptions: {},
 }
 </script>
 <script setup lang="ts"></script>

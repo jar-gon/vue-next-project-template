@@ -1,142 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-  </head>
-  <body>
-    <div id="app">
-      <style>
-        .app-loading {
-          display: flex;
-          width: 100%;
-          height: 100%;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          background: #f0f2f5;
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_346699_se3oi3qxp9.css"/>
+  <style>
+    [class^=icon-] {
+      font-family: iconfont!important;
+      font-size: 14px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+  <title>
+    <%= title %>
+  </title>
+</head>
+
+<body>
+  <noscript>
+    We're sorry but <%= title %> doesn't work properly without JavaScript enabled.
+  </noscript>
+  <div id="app">
+    <style>
+      .spin {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .spin-dot {
+        margin: auto;
+        position: relative;
+        width: 50px;
+        height: 50px;
+      }
+
+      .square-box {
+        text-align: center;
+        font-size: 0px;
+      }
+
+      .spin-text {
+        color: #3399ff;
+        margin: 10px 0;
+      }
+
+      .square-box span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 2px;
+        margin: 2.5px;
+      }
+
+      .square-box span:nth-child(1) {
+        background-color: #A0D8FF;
+        animation: first 1.5s 0s ease-in-out infinite;
+      }
+
+      .square-box span:nth-child(2) {
+        background-color: #70C4FF;
+        animation: second 1.5s 0s ease-in-out infinite;
+
+      }
+
+      .square-box span:nth-child(3) {
+        background-color: #1D91FC;
+        animation: third 1.5s 0s ease-in-out infinite;
+      }
+
+      .square-box span:nth-child(4) {
+        background-color: #46ACFF;
+        animation: fourth 1.5s 0s ease-in-out infinite;
+      }
+
+      @keyframes first {
+        0% {
+          background-color: #A0D8FF;
         }
 
-        .app-loading .app-loading-wrap {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          display: flex;
-          -webkit-transform: translate3d(-50%, -50%, 0);
-          transform: translate3d(-50%, -50%, 0);
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
+        25% {
+          background-color: #1D91FC;
         }
 
-        .app-loading .app-loading-title {
-          margin-bottom: 30px;
-          font-size: 20px;
-          font-weight: bold;
-          text-align: center;
+        50% {
+          background-color: #46ACFF;
         }
 
-        .app-loading .app-loading-logo {
-          /* width: 100px; */
-          margin-bottom: 15px;
+        75% {
+          background-color: #70C4FF;
         }
 
-        .app-loading .app-loading-item {
-          position: relative;
-          display: inline-block;
-          width: 60px;
-          height: 60px;
-          vertical-align: middle;
-          border-radius: 50%;
+        100% {
+          background-color: #A0D8FF;
+        }
+      }
+
+      @keyframes second {
+        0% {
+          background-color: #70C4FF;
         }
 
-        .app-loading .app-loading-outter {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          border: 4px solid #2d8cf0;
-          border-bottom: 0;
-          border-left-color: transparent;
-          border-radius: 50%;
-          animation: loader-outter 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+        25% {
+          background-color: #A0D8FF;
         }
 
-        .app-loading .app-loading-inner {
-          position: absolute;
-          top: calc(50% - 20px);
-          left: calc(50% - 20px);
-          width: 40px;
-          height: 40px;
-          border: 4px solid #87bdff;
-          border-right: 0;
-          border-top-color: transparent;
-          border-radius: 50%;
-          animation: loader-inner 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+        50% {
+          background-color: #1D91FC;
         }
 
-        @-webkit-keyframes loader-outter {
-          0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-          }
-
-          100% {
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-          }
+        75% {
+          background-color: #46ACFF;
         }
 
-        @keyframes loader-outter {
-          0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-          }
+        100% {
+          background-color: #70C4FF;
+        }
+      }
 
-          100% {
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-          }
+      @keyframes third {
+        0% {
+          background-color: #1D91FC;
         }
 
-        @-webkit-keyframes loader-inner {
-          0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-          }
-
-          100% {
-            -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
-          }
+        25% {
+          background-color: #46ACFF;
         }
 
-        @keyframes loader-inner {
-          0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-          }
-
-          100% {
-            -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
-          }
+        50% {
+          background-color: #70C4FF;
         }
-      </style>
-      <div class="app-loading">
-        <div class="app-loading-wrap">
-          <div class="app-loading-title">
-            <img src="/logo.png" class="app-loading-logo" alt="Logo" />
-            <div class="app-loading-title">vue-element-plus-admin</div>
+
+        75% {
+          background-color: #A0D8FF;
+        }
+
+        100% {
+          background-color: #1D91FC;
+        }
+      }
+
+      @keyframes fourth {
+        0% {
+          background-color: #46ACFF;
+        }
+
+        25% {
+          background-color: #70C4FF;
+        }
+
+        50% {
+          background-color: #A0D8FF;
+        }
+
+        75% {
+          background-color: #1D91FC;
+        }
+
+        100% {
+          background-color: #46ACFF;
+        }
+      }
+    </style>
+    <div class="spin">
+      <div class="spin-main">
+        <div class="spin-dot">
+          <div class="square-box">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-          <div class="app-loading-item">
-            <div class="app-loading-outter"></div>
-            <div class="app-loading-inner"></div>
-          </div>
+        </div>
+        <div class="spin-text">
+          vue-next-project-template
         </div>
       </div>
     </div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>

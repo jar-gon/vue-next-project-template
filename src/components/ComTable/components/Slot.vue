@@ -5,20 +5,20 @@ export default defineComponent({
   props: {
     row: {
       type: Object as PropType<IObj>,
-      default: () => null
+      default: () => null,
     },
     index: {
       type: Number as PropType<number>,
-      default: null
+      default: null,
     },
     column: {
       type: Object as PropType<IObj>,
-      default: () => null
+      default: () => null,
     },
     slotName: {
       type: String as PropType<string>,
-      default: ''
-    }
+      default: '',
+    },
   },
   render(props) {
     const _this: any = inject('tableRoot')
@@ -27,10 +27,10 @@ export default defineComponent({
       _this.slots[props.slotName]({
         row: props.row,
         column: props.column,
-        $index: props.index
+        $index: props.index,
       })
     )
-  }
+  },
 })
 </script>
 

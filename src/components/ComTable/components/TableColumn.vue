@@ -45,8 +45,8 @@ import { deepClone } from '@/utils'
 defineProps({
   child: {
     type: Object as PropType<IObj>,
-    required: true
-  }
+    required: true,
+  },
 })
 
 function getItemBindValue(item: any) {

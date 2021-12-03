@@ -77,23 +77,23 @@ const props = defineProps({
   // 表头
   columns: {
     type: Array as PropType<IObj[]>,
-    default: () => []
+    default: () => [],
   },
   // 是否多选
   selection: {
     type: Boolean as PropType<boolean>,
-    default: false
+    default: false,
   },
   // 是否展示分页
   pagination: {
     type: [Boolean, Object] as PropType<boolean | IObj>,
-    default: false
+    default: false,
   },
   // 仅对 type=selection 的列有效，类型为 Boolean，为 true 则会在数据更新之后保留之前选中的数据（需指定 row-key）
   reserveSelection: {
     type: Boolean as PropType<boolean>,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const attrs = useAttrs()
@@ -131,7 +131,7 @@ const getPaginationBindValue = computed((): IObj => {
 
 const paginationStyle = computed(() => {
   return {
-    textAlign: (props.pagination && (props.pagination as IObj).position) || 'right'
+    textAlign: (props.pagination && (props.pagination as IObj).position) || 'right',
   }
 })
 
@@ -146,7 +146,7 @@ function headerDragend(newWidth: number, _: number, column: IObj) {
 }
 
 defineExpose({
-  getTableRef
+  getTableRef,
 })
 </script>
 

@@ -1,5 +1,5 @@
 NODE_ENV=production
 VITE_VUE_APP_RUN_ENV=pro
-VITE_SALE_BASE_URL=//saleapi.zmlearn.com
+VITE_BASE_URL=//saleapi.zmlearn.com
 VITE_AUTH_DOMAIN=//zmlearn.com
-VITE_SYS_AUTH_CODE=99865f3f4f2a4f3ebe0b9f94528f72d7
+VITE_SYS_AUTH_CODE=400209ee881b4fec8fa3cbd74990e896

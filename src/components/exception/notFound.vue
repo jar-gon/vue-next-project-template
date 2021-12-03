@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="404">
+<script setup lang="ts" name="ExpcetionNotFound">
 import { ref } from 'vue'
 const message = ref<string>('网管说这个页面你不能进......')
 </script>

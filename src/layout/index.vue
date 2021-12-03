@@ -1,6 +1,8 @@
 <template>
   <div class="app-wrapper">
-    <component :is="layout" />
+    <component :is="layout">
+      <app-main />
+    </component>
   </div>
 </template>
 
@@ -13,6 +15,7 @@ import Classic from './modules/Classic.vue'
 import Top from './modules/Top.vue'
 // @ts-ignore
 import LeftTop from './modules/LeftTop.vue'
+import AppMain from './components/AppMain/index.vue'
 import { useAppStore } from '@/store/modules/app'
 const appStore = useAppStore()
 

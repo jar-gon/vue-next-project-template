@@ -4,6 +4,6 @@ export function useFullscreen() {
   const sf = screenfull as any
 
   return {
-    sf
+    sf,
   }
 }

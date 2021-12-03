@@ -1,5 +1,5 @@
 <template>
-  <i v-if="icon && icon.includes('el-icon')" :class="[icon, 'sub-el-icon', 'anticon']"></i>
+  <i v-if="icon && icon.includes('icon-')" :class="[icon, 'menu-iconfont', 'anticon']"></i>
   <svg-icon v-else-if="icon" :icon-class="icon" class="anticon" />
   <slot name="title">
     <span class="anticon-item">{{ title }}</span>
@@ -11,18 +11,19 @@ import { PropType } from 'vue'
 defineProps({
   icon: {
     type: String as PropType<string>,
-    default: ''
+    default: '',
   },
   title: {
     type: String as PropType<string>,
-    default: ''
-  }
+    default: '',
+  },
 })
 </script>
 
 <style lang="less" scoped>
 .anticon-item {
   opacity: 1;
+  margin-left: 10px;
   transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
     width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }

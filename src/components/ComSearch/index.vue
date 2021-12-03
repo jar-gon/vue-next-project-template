@@ -152,10 +152,8 @@
             </template>
           </el-form-item>
           <el-form-item v-if="data.length > 0 && layout === 'classic'">
-            <el-button type="primary" icon="el-icon-search" @click="submitForm"> 查询 </el-button>
-            <el-button v-if="showReset" icon="el-icon-refresh-right" @click="resetForm">
-              重置
-            </el-button>
+            <el-button type="primary" :icon="Search" @click="submitForm"> 查询 </el-button>
+            <el-button v-if="showReset" :icon="RefreshRight" @click="resetForm"> 重置 </el-button>
           </el-form-item>
         </el-form>
       </el-col>
@@ -166,16 +164,16 @@
           :class="{ 'search__bottom--col': layout === 'right' }"
         >
           <div class="search__bottom--button">
-            <el-button type="primary" icon="el-icon-search" @click="submitForm"> 查询 </el-button>
+            <el-button type="primary" :icon="Search" @click="submitForm"> 查询 </el-button>
           </div>
           <div class="search__bottom--button">
             <el-button
               v-if="showReset"
               :style="{
                 'margin-left': layout !== 'right' ? '15px' : '0',
-                'margin-top': layout === 'right' ? '27px' : '0'
+                'margin-top': layout === 'right' ? '27px' : '0',
               }"
-              icon="el-icon-refresh-right"
+              :icon="RefreshRight"
               @click="resetForm"
             >
               重置
@@ -190,49 +188,50 @@
 <script setup lang="ts" name="ComSearch">
 import { PropType, watch, ref, unref } from 'vue'
 import { deepClone } from '@/utils'
+import { Search, RefreshRight } from '@/icons'
 
 const props = defineProps({
   // 表单域标签的宽度，例如 '50px'。作为 Form 直接子元素的 form-item 会继承该值。支持 auto。
   labelWidth: {
     type: String as PropType<string>,
-    default: ''
+    default: '',
   },
   labelPosition: {
     type: String as PropType<'right' | 'left' | 'top'>,
-    default: 'right'
+    default: 'right',
   },
   // 隐藏所有表单项的必选标记
   hideRequiredAsterisk: {
     type: Boolean as PropType<boolean>,
-    default: true
+    default: true,
   },
   // 表单数据对象
   data: {
     type: Object as PropType<{ [key: string]: any }>,
-    default: () => {}
+    default: () => {},
   },
   // 表单验证规则
   rules: {
     type: Object as PropType<{ [key: number]: any }>,
     default: () => {
       return {}
-    }
+    },
   },
   // 是否显示重置按钮
   showReset: {
     type: Boolean as PropType<boolean>,
-    default: true
+    default: true,
   },
   // 是否显示导出按钮
   showExport: {
     type: Boolean as PropType<boolean>,
-    default: false
+    default: false,
   },
   // 风格
   layout: {
     type: String as PropType<'classic' | 'bottom' | 'right'>,
-    default: 'classic'
-  }
+    default: 'classic',
+  },
 })
 
 const emit = defineEmits(['search-submit', 'reset-submit', 'change'])
@@ -246,7 +245,7 @@ watch(
   },
   {
     deep: true,
-    immediate: true
+    immediate: true,
   }
 )
 
@@ -295,7 +294,7 @@ function changeVal(val: any, item: any): void {
   if (item.onChange) {
     emit('change', {
       field: item.field,
-      value: val
+      value: val,
     })
   }
 }

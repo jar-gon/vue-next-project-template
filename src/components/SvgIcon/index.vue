@@ -11,13 +11,13 @@ const props = defineProps({
   // svg文件名
   iconClass: {
     type: String as PropType<string>,
-    required: true
+    required: true,
   },
   // 自定义类名
   className: {
     type: String as PropType<string>,
-    default: ''
-  }
+    default: '',
+  },
 })
 
 const iconName = computed(() => `#icon-${props.iconClass}`)
